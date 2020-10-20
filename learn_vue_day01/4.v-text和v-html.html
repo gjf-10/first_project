@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue-- v-text和v-html</title>
+</head>
+<body>
+
+    <div id="jane">
+        <span> {{ msg }} -- 纳兰性德</span><br>
+        <!--    v-text="data 中定义好的数据"，覆盖标记标签的text()    -->
+        <div v-text="msg">--<h3>纳兰性德</h3></div>
+        <!-- 用字符串替代text -->
+        <div v-text="msg1">--<h3>纳兰性德</h3></div>
+
+        <div>孔子 <h3>{{ str }}</h3></div>
+        <!--  v-html="data 中定义好的数据"，覆盖标记标签中的text() -->
+        <div v-html="str">孔子 <h3>{{ str }}</h3></div>
+        <!-- 会解析字符串如果字符串中有标签会解析标签 -->
+        <div v-html="str1">孔子 <h3>{{ str }}</h3></div>
+
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                msg: "人生若只如初见，何事秋风悲画扇",
+                msg1: "<h3>人生若只如初见，何事秋风悲画扇</h3>",
+                str: "君子慎始，差之毫厘谬以千里",
+                str1: "<h3>君子慎始，差之毫厘谬以千里</h3>"
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue- v-show</title>
+</head>
+<body>
+    <div id="jane">
+        <span v-show="true">{{ msg }}</span>
+        <br>
+        <!--  v-show="isShow是data中的数据，当v-show的值是true时显示标记的标签，否则不显示，可用isShow这个变量控制"  -->
+        <span v-show="isShow">{{ msg }}</span>
+        <!--  v-show的值0，false，null，空字符串，表示假，1，true等表示真  -->
+        <span v-show="1">{{ msg }} {{ isShow }}</span>
+        <br>
+        <input type="button" value="点击控制是否显示" @click="show_info">
+        <br>
+
+        <span v-show="num>=1">逻辑判断是否显示</span>
+        <br>
+        <input type="button" value="用逻辑表达式控制v-show的真假" @click="push">
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                msg: "人本主义",
+                isShow: false,
+                num: 2,
+            },
+            methods: {
+                show_info(){
+                    this.isShow = !this.isShow;
+                },
+                push(){
+                    this.num --;
+                    if(this.num < 1){
+                        alert("控制条件为假了")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

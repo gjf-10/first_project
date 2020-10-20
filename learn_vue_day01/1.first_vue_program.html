@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一次使用vue</title>
+    <!--  https://cdn.jsdelivr.net/npm/vue/dist/vue.js 开发环境版本，包含了有帮助的命令行警告  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--  https://cdn.jsdelivr.net/npm/vue 生产环境版本，优化了尺寸和速度 -->
+<!--    <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+</head>
+<body>
+    <div id="app">{{ username }}————>{{ message }}</div>
+    <hr>
+    <div>{{ username }} vue中el的作用范围之外不起作用</div>
+    <!--  下载下来的导包；上面两种方式都需要联网不需要下载  -->
+<!--    <script src="js/vue.min.js"></script>-->
+    <script>
+        new Vue({
+            // el，用来定义Vue的作用范围，表示某个选择器选择的element对象
+            el: "#app",
+            // data，数据，用来给Vue实例定义一些相关的数据
+            data: {
+                message: "Hello World",
+                username: "过去的过去",
+            },
+        })
+    </script>
+</body>
+</html>

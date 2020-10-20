@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue -- 事件</title>
+</head>
+<body>
+    <div id="jane">
+        年龄：<span>{{ age }}</span><br>
+
+        <!--   v-on:某个事件=“响应事件的方法名”  -->
+        <input type="button" value="+" v-on:click="add_age">
+        <!--  用@ 取代v-on:作用一样  -->
+        <input type="button" value="-" @click="sub_age">
+        <!-- 参数传递 -->
+        <input type="button" value="实际年龄" @click="real_age()">
+        <input type="button" value="重置年龄" @click="new_add(18, event)"/>
+
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                age: 18,
+            },
+
+            // method 用来定义Vue对象的方法，操作data中的数据
+            methods: {
+                // 方法的标准写法
+                add_age: function(){
+                    this.age++;
+                },
+                // 方法的简化写法
+                sub_age(){
+                    this.age--;
+                },
+
+                // 带参数的方法
+                // event 是默认参数
+                real_age(){
+                    console.log(event)
+                    alert(this.age-1)
+                },
+                // 在有其它参数时需要显示的声明
+                new_add(age, event){
+                    console.log(age);
+                    this.age = age;
+                },
+            }
+        })
+    </script>
+</body>
+</html>

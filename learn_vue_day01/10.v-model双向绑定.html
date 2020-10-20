@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue v-model</title>
+</head>
+<body>
+    <div id="jane">
+    <!--   v-model 只能用于表单标签     -->
+        <!--  input中的内容与msg双向绑定，所以input框中的初始值与msg相同；input的内容变则msg的值变，msg变则下面的p标签的内容也变    -->
+        <input type="text" v-model="msg" @change="change">
+        <p>{{ msg }}</p>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                msg: "乘风破浪会有时",
+            },
+            methods: {
+                change(){
+                    this.msg = '';
+                }
+            }
+        })
+    </script>
+</body>
+</html>

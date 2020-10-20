@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue v-for</title>
+</head>
+<body>
+    <div id="jane">
+
+        <span>{{ user.name }}+{{user.age}}+{{user.character}}</span>
+        <!--  第一个参数是对象中属性的值，第二个参数是对象中属性的名，第三个参数是对象中属性的下标  -->
+        <ol v-for="(value, key) in user">
+            <li>{{ key }}: {{ value }}</li>
+        </ol>
+        <!--    第一个参数i是数组内容，第二个参数o是数据下标   -->
+        爱好：<span v-for="(i, o) in hobby"> {{i}} </span>
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                user: {name: "阿巴阿巴", age: 11, character: "爱笑"},
+                hobby: ["吃饭饭", "喝水水", "睡觉觉", "打豆豆"],
+            }
+        })
+    </script>
+</body>
+</html>

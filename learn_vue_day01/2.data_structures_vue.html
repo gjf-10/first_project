@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的各种数据类型</title>
+</head>
+<body>
+    <div id="jane">
+        str: <span>{{ str }}</span><br>
+        number: <span>{{ number }}</span><br>
+        arr: <span>{{ arr }}</span><br>
+        obj: <span>{{ obj }}</span><br>
+        users: <span >{{ users }}</span><br>
+
+        <!--    数组，对象内容的访问方式    -->
+        arr元素：<span>{{ arr[1] }}</span><br>
+        obj属性：<span>{{ obj.username }}</span><br>
+
+    </div>
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                // 字符串
+                str: "夜半待客客不至，闲敲棋子落灯花",
+                // 数字
+                number: 15,
+                // 数组
+                arr: ["01", 10, '11'],
+                // 对象
+                obj: {"username": "Kevin", "password": "123456"},
+                // 数组中包含对象
+                users: [["01", 10, '11'], {"username": "Kevin", "password": "123456"}]
+            },
+        })
+    </script>
+</body>
+</html>

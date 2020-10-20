@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <style>
+        #remark_area{
+            margin: 20px 0px;
+            padding: 10px;
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+<body>
+    <div id="jane">
+        <input type="text" v-model="remark">
+        <input type="button" value="发表评论" @click="launch">
+        <div id="remark_area">
+
+            <li v-for="(i, index) in arr">
+                <span>{{ i }}</span> <a href="javascript:" @click="del(index)">删除</a>
+            </li>
+            <br>
+            <span>留言总数量：<span>{{ arr.length }}</span> <input type="button" v-show="isShow" value="删除所有" @click="del_all"></span>
+        </div>
+    </div>
+
+    <script src="../js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                arr: ['坐，请坐，请上坐', '茶，上茶，上好茶'],
+                remark: "",
+                isShow: true,
+            },
+            methods: {
+                launch(){
+                    // 如果评论内容为空，不将该评论添加在评论区
+                    if (this.remark){
+                        this.arr.unshift(this.remark)
+                    }
+                    this.isShow = true;
+                },
+                del(index){
+                    this.arr.splice(index, 1);
+                    if(!this.arr.length){
+                        this.isShow = false;
+                    }else{
+                        this.isShow = true;
+                    }
+                },
+                del_all(){
+                    this.arr = []
+                    this.isShow = false;
+                }
+
+            }
+
+        })
+    </script>
+</body>
+</html>

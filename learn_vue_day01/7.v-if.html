@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue- v-if</title>
+</head>
+<body>
+    <div id="jane">
+        <!--  可用data中的一个变量来控制显示哪个标签  -->
+        <p v-if="num>9"> v-if 是true</p>
+        <p v-else-if="num==10"> v-else-if是true</p>
+        <p v-else> v-else 是true</p>
+
+        <input type="button" value="+" @click="add">
+        <input type="button" value="-" @click="sub">
+    </div>
+
+    <script src="js/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: "#jane",
+            data: {
+                num: 10,
+            },
+            methods: {
+                add(){
+                    this.num++;
+                },
+                sub(){
+                    this.num--;
+                }
+            },
+        })
+    </script>
+</body>
+</html>
